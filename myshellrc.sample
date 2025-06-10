@@ -1,0 +1,4 @@
+# ~/.myshellrc
+echo "Welcome to your custom shell, $USER!"
+cd ~/Documents
+export EDITOR=nano
