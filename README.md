@@ -87,3 +87,58 @@ sudo apt install libreadline-dev
 
 This project is licensed under the MIT License.
 # custom-linux-shell
+This is a complete implementation of a custom Unix shell written in C called "myshell". Here's what this shell provides:
+
+## Key Features
+
+**Interactive Command Line Interface**
+
+- Uses GNU readline library for command input with line editing capabilities
+- Maintains command history that persists across sessions
+- Supports a startup configuration file (`~/.myshellrc`)
+
+
+**Core Shell Functionality**
+
+- **Built-in commands**: `cd` for directory navigation and `exit` to quit
+- **External command execution**: Runs system programs and utilities
+- **Pipeline support**: Connect commands with pipes (`|`) for data flow between processes
+- **Background execution**: Run commands in background using `&` suffix
+- **I/O redirection**: Redirect input (`<`) and output (`>`) to/from files
+
+
+**Advanced Process Management**
+
+- Creates child processes using `fork()` and `execvp()`
+- Handles multiple processes in pipelines
+- Proper cleanup and waiting for child processes
+- Background process notification
+
+
+## Code Structure
+
+```c project="Custom Shell" file="myshell.c"
+...
+```
+
+## Usage Examples
+
+Once compiled, you can use the shell like this:
+
+```shellscript
+# Basic commands
+myshell> ls -la
+myshell> cd /home/user
+
+# Pipelines
+myshell> ls | grep .txt | wc -l
+
+# I/O redirection
+myshell> echo "Hello World" > output.txt
+myshell> cat < input.txt
+
+# Background execution
+myshell> sleep 10 &
+```
+
+This implementation demonstrates fundamental operating systems concepts including process management, inter-process communication, and file I/O operations in a Unix environment.
